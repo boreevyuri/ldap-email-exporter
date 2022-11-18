@@ -1,0 +1,13 @@
+---
+ldap:
+  url: "ldaps://ldaps.example.com:636"
+  login: "account@example.com"
+  bind_dn: "CN=administrator service account,OU=Accounts,OU=Third_Parties_Auth,OU=Service_Accounts,OU=Management,DC=example,DC=com"
+  secret: "pa55w0rd"
+#  base_dn: "OU=Domain Structure,DC=example,DC=com"
+  base_dn: "DC=example,DC=com"
+  filters:
+    - "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2)(mail=*))"
+#    - "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))"
+  exclude:
+    - "ownmail.com"
